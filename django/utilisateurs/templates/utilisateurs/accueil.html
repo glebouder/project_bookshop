@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Le site de La Brèche</title>
+  </head>
+  <body>
+    <p>Hello,</p>
+    <p>Fuckin' World !</p>
+  </body>
+  <h1>SITE DE LA BRÈCHE</h1>
+  <h2> (non je rigole c'est un projet bdd)</h2>
+  <h3>Le vrai site de la brèche est là : <a href="">The breaish</a></h3>
+  <div>Ici l'interface administrateur : <a href="admin/">plop</a></div>
+  <div>
+    Ici les différents utilisateurs enregistrés :
+    {% for user in users %}
+    <div>
+      <p>pseudo : {{ user.pseudo }}</p>
+      <p>id : {{ user.id }}</p>
+      <p>contact : {{ user.mail }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</html>
