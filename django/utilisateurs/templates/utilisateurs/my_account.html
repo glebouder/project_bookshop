@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Le site de La Brèche, VOTRE ESPACE</title>
+  </head>
+  <body>
+    <h2>Hello, {{ request.user.username }}</h2>
+    <h2>Votre espace personnel :</h2>
+    <div>Ici pour se délogguer : <a href="/logout/">logout</a></div>
+
+<!--    <form action="/logina/">
+      <p>
+        <label for="pseudo">Votre login : </label>
+        <input type="text" name="pseudo" id="pseudo" placeholder="Entrez votre pseudo" required >
+      </p>
+      <p>
+        <label for="mdp">Votre mot de passe : </label>
+        <input type="password" name="mdp" id="mdp" placeholder="Entrez votre mot de passe" required >
+      </p>
+      <p><input type="submit" value="Valider" ></p>
+      </form>
+-->
+  </body>
+</html>

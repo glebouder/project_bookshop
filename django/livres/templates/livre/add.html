@@ -1,0 +1,22 @@
+<html>
+  <title>
+    Le site de la brèche, choix d'un objet à ajouter
+  </title>
+  <body>
+    <form action="/add/" method="post">
+      {% csrf_token %}
+      <p>
+        <label for="objet à ajouter">Quel type d'objet voulez-vous ajouter ?</label></br>
+        <select name="object" id="object">
+          <option value="livre">Livre</option>
+          <option value="auteur">Auteur</option>
+          <option value="editeur">Editeur</option>
+          <option value="langue">Langue</option>
+          <option value="genre">Genre</option>
+          <option value="theme">Thème</option>
+        </select>
+      </p>
+      <input type="submit" value="Ajouter">
+    </form>
+  </body>
+</html>

@@ -14,13 +14,7 @@ class Adresse(models.Model):
     type_voie = models.ForeignKey('Type_Voie')
 
 class Utilisateur(models.Model):
-    id = models.AutoField(primary_key=True)
-    mdp = models.CharField(max_length=64)
-    pseudo = models.TextField()
-    nom = models.TextField()
-    prenom = models.TextField()
-    mail = models.TextField()
-    tel = models.TextField()
+    user = models.OneToOneField("auth.user")
     adresse = models.ForeignKey('Adresse',default=1)
 
     def change_prenom(self,new_prenom):

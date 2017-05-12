@@ -1,0 +1,13 @@
+<html>
+  <title>
+    Le site de la brèche, ajout d'un objet
+  </title>
+  <body>
+    <form action="/add/" method="post">
+      {% csrf_token %}
+      {{ classe.as_p }}
+      <la>
+      <input type="submit" value="Ajouter">
+    </form>
+  </body>
+</html>

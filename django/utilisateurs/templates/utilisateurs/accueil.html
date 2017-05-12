@@ -4,20 +4,35 @@
   </head>
   <body>
     <p>Hello,</p>
-    <p>Fuckin' World !</p>
+    <p>World !</p>
   </body>
   <h1>SITE DE LA BRÈCHE</h1>
-  <h2> (non je rigole c'est un projet bdd)</h2>
-  <h3>Le vrai site de la brèche est là : <a href="">The breaish</a></h3>
+  <h3>Le vrai site de la brèche est là : <a href="http://www.la-breche.com/">The breaish</a></h3>
   <div>Ici l'interface administrateur : <a href="admin/">plop</a></div>
+  <div><pr>
+    {% if request.user.is_authenticated %}
+      Bienvenue {{ request.user.username }}</br>
+      Votre espace personnel : <a href="accounts/profile/">cliquez par là</a></br>
+      Se déconnecter : <a href="logout/">à la prochaine fois</a></br>
+    {% else %}
+      Bienvenue !
+      Pas encore membre ? Cliquez ici pour vous inscrire : <a href="new_account/">register</a></br>
+      Ici pour se connecter : <a href="login/">login</a></br>
+    {% endif %}
   <div>
-    Ici les différents utilisateurs enregistrés :
-    {% for user in users %}
+    Passer commande : <a href="commandes/search/">commande</a></br></br>
+    
+    Ajouter des "trucs" : <a href="add/">un livre ?</a></br></br>
+    <p>Ici les différents utilisateurs enregistrés :</p>
     <div>
-      <p>pseudo : {{ user.pseudo }}</p>
-      <p>id : {{ user.id }}</p>
-      <p>contact : {{ user.mail }}</p>
+      {% for user in users %}
+      <p>
+        pseudo : {{ user.username }}</br>
+        id : {{ user.id }}</br>
+        contact : {{ user.email }}</br>
+        mdp : {{ user.password }}
+      </p>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </html>

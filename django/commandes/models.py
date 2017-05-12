@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-class Commandes(models.Model):
+class Commande(models.Model):
     id = models.AutoField(primary_key=True)
     date_emmission = models.DateTimeField(default=timezone.now)
     type = models.IntegerField()
