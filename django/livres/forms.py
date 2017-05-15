@@ -1,4 +1,4 @@
-from django.forms import ModelForm,ChoiceField
+from django.forms import ModelForm,ChoiceField,Form
 from django import forms
 from livres.models import *
 
@@ -34,3 +34,10 @@ class ThemeForm(ModelForm):
         model = Theme
         fields = '__all__'
 
+class SearchForm(Form):
+    auteur = forms.CharField(label='auteur',max_length=100)
+    editeur = forms.CharField(label='editeur',max_length=100)
+    langue = forms.CharField(label='langue',max_length=100)
+    genre = forms.CharField(label='genre',max_length=100)
+    theme = forms.CharField(label='theme',max_length=100)
+    titre = forms.CharField(label='titre',max_length=100)
