@@ -1,11 +1,24 @@
 from django.shortcuts import render,redirect
 from .forms import *
+from .models import *
 
 def search(request):
     if request.method == "POST":
-        if is_valide:
-            return answer()
-    return render(request, 'livre/search.html', {})
+        print("popopopopopo")
+        form = SearchForm(request.POST)
+        print(form)
+        #if form.is_valide: #bordel...
+        print(form.cleaned_data)
+        datas = form.cleaned_data
+        auteurs = Auteur.objects.filter(nom_auteur__icontains=datas['auteur']).values()
+        print(auteurs)
+        #reponse = Livre.objects.filter(auteur__icontains=datas['auteur'])
+            #faire la requete (.filter)
+            #return answer(request,1)
+
+    else:
+        form=SearchForm()
+    return render(request, 'livre/search.html', {'toto':form})
 
 
 def answer(request,page):

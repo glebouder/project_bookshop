@@ -3,10 +3,11 @@
     <title>Le site de la Brèche, RECHERCHE</title>
   </head>
   <body>
-    <h2>Vous voulez ajouter un item ?</h2>
-    <form action="/commandes/search" method="post">
+    <h2>Vous voulez chercher un item ?</h2>
+    <form action="/commandes/search/" method="post">
     {% csrf_token %}
-      <p>
+    {{ toto.as_p }}
+<!--      <p>
         <label for="auteur">Auteur : </label>
         <input type="text" name="auteur" id="auteur" placeholder="Tapez l'auteur qui vous intéresse" required >
       </p>
@@ -29,7 +30,7 @@
       <p>
         <label for="langue">Langue : </label>
         <input type="text" name="langue" id="langue" placeholder="Tapez la langue qui vous intéresse" required >
-      </p>
+        </p>-->
       <p><input type="submit" value="Valider" ></p>
     </form>
   </body>
