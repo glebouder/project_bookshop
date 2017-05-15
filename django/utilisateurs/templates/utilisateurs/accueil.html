@@ -7,7 +7,6 @@
     <p>World !</p>
   </body>
   <h1>SITE DE LA BRÈCHE</h1>
-  <h3>Le vrai site de la brèche est là : <a href="http://www.la-breche.com/">The breaish</a></h3>
   <div>Ici l'interface administrateur : <a href="admin/">plop</a></div>
   <div><pr>
     {% if request.user.is_authenticated %}
@@ -22,7 +21,7 @@
   <div>
     Passer commande : <a href="commandes/search/">commande</a></br></br>
     
-    Ajouter des "trucs" : <a href="add/">un livre ?</a></br></br>
+    Ajouter des "trucs" : <a href="add/">ici</a></br></br>
     <p>Ici les différents utilisateurs enregistrés :</p>
     <div>
       {% for user in users %}
