@@ -3,8 +3,18 @@
     Le site de la brèche, choix d'un objet à ajouter
   </title>
   <body>
-    <form action="/add/" method="post">
+    <h2>Vous voulez ajouter un item ?</h2>
+    Un Livre : <a href=/add/livre/>Ajouter un livre</a></br>
+    Un Auteur : <a href=/add/auteur/>Ajouter un auteur</a></br>
+    Un Éditeur : <a href=/add/editeur/>Ajouter un éditeur</a></br>
+    Une Langue : <a href=/add/langue/>Ajouter une langue</a></br>
+    Un Genre : <a href=/add/genre/>Ajouter un genre</a></br>
+    Un Thème : <a href=/add/theme/>Ajouter un thème</a></br>
+<!--     <select form action="/add/" method="post">
       {% csrf_token %}
+      <option value="livre">Livre</option>
+
+     {{ form.as_p }}
       <p>
         <label for="objet à ajouter">Quel type d'objet voulez-vous ajouter ?</label></br>
         <select name="object" id="object">
@@ -15,8 +25,8 @@
           <option value="genre">Genre</option>
           <option value="theme">Thème</option>
         </select>
-      </p>
-      <input type="submit" value="Ajouter">
+        </p>
+        <input type="submit" value="Ajouter">-->
     </form>
   </body>
 </html>

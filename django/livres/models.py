@@ -1,20 +1,22 @@
 from django.db import models
+from django import forms
 
 class Langue(models.Model):
     id = models.AutoField(primary_key=True)
-    langue = models.CharField(max_length=8)
+    sigle = models.CharField(max_length=8,default="",unique=True)
+    langue = models.CharField(max_length=40)
 
 class Theme(models.Model):
     id = models.AutoField(primary_key=True)
-    theme = models.TextField()
+    theme = models.TextField(unique=True)
 
 class Genre(models.Model):
     id = models.AutoField(primary_key=True)
-    genre = models.TextField()
+    genre = models.TextField(unique=True)
 
 class Distributeur(models.Model):
     id = models.AutoField(primary_key=True)
-    nom = models.TextField()
+    nom = models.TextField(unique=True)
     mail = models.TextField()
     tel = models.TextField()
     fax = models.TextField()
@@ -22,7 +24,7 @@ class Distributeur(models.Model):
 
 class Editeur(models.Model):
     id = models.AutoField(primary_key=True)
-    nom = models.TextField()
+    nom = models.TextField(unique=True)
     mail = models.TextField()
     distributeur = models.ForeignKey('Distributeur')
     adresse = models.ForeignKey('utilisateurs.Adresse')
@@ -31,7 +33,7 @@ class Auteur(models.Model):
     id = models.AutoField(primary_key=True)
     nom = models.TextField()
     prenom = models.TextField()
-    nom_auteur = models.TextField()
+    nom_auteur = models.TextField(unique=True)
     mail = models.TextField()
 
 class Livre(models.Model):
@@ -58,3 +60,9 @@ class A_Ecrit(models.Model):
     id_livre = models.ForeignKey('Livre')
     id_auteur = models.ForeignKey('Auteur')
 
+#class Choice(models.Model):
+#    CHOICES = (
+#            ('langue','langue'),
+#            ('genre' , 'genre'),
+#    )
+#    query_choice = forms.ChoiceField(choices=CHOICES)

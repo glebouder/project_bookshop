@@ -3,10 +3,10 @@
     Le site de la brèche, ajout d'un objet
   </title>
   <body>
-    <form action="/add/" method="post">
+    <form method="post">
       {% csrf_token %}
-      {{ classe.as_p }}
-      <la>
+      {{ item.as_p }}
+      coucou c'est moi
       <input type="submit" value="Ajouter">
     </form>
   </body>
