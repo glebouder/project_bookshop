@@ -60,9 +60,3 @@ class A_Ecrit(models.Model):
     id_livre = models.ForeignKey('Livre')
     id_auteur = models.ForeignKey('Auteur')
 
-#class Choice(models.Model):
-#    CHOICES = (
-#            ('langue','langue'),
-#            ('genre' , 'genre'),
-#    )
-#    query_choice = forms.ChoiceField(choices=CHOICES)

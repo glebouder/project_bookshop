@@ -46,38 +46,37 @@ def add(request):
 #        raise("don't know what to do with "+request.method+" in add")
 
 def add_sth(request, classe):
-    print("add_sth")
-    print(classe)
-    print(request.method)
     dict_form = {
-            'livre':LivreForm(),
-            'auteur':AuteurForm(),
-            'editeur':EditeurForm(),
+            'livre':LivreForm,
+            'auteur':AuteurForm,
+            'editeur':EditeurForm,
             'langue':LangueForm,
-            'genre':GenreForm(),
-            'theme':ThemeForm(),
+            'genre':GenreForm,
+            'theme':ThemeForm,
     }
-    toto = Langue.objects
+    dict_obj = {
+            'livre':Livre,
+            'auteur':Auteur,
+            'editeur':Editeur,
+            'langue':Langue,
+            'genre':Genre,
+            'theme':Theme,
+    }
     type_form = dict_form[classe]
+    type_obj = dict_obj[classe]
     if request.method == "POST":
         user_form = type_form(request.POST)
-        print(request.POST['sigle'])
         print(user_form)
         if user_form.is_valide:
             print(user_form.cleaned_data)
-            answers = request.POST
-#            answers['sigle'] = answers['sigle'].lower()
-#            if Langue.objects.get(sigle__=(answers['sigle'])):
-#                print("already exists")
-#            else:
-#                print("newone")
-            print("succeded")
-            # on ajoute paar requete , en vérifiant qu'on n'a pas déjà la langue
-            Langue.objects.create(user_form.cleaned_data)
-            print("lalalallalalalla")
+            obj = type_obj(**user_form.cleaned_data)
+            try:
+                obj.save()
+            except:
+                return render(request, 'livre/add.html', {'already_exists':True})
             return redirect("add")
         else:
             print("not valide")
             type_form = user_form
-    return render(request, 'livre/add_sth.html', {'item':type_form , 'classe':classe})
+    return render(request, 'livre/add_sth.html', {'item':type_form})
 

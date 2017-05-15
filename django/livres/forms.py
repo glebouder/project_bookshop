@@ -33,16 +33,4 @@ class ThemeForm(ModelForm):
     class Meta:
         model = Theme
         fields = '__all__'
- 
-##CHOICES = (('langue' , 'langue') , ('genre' , 'genre'))
-##votre_choix = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES)
-#class ChoiceForm(ChoiceField):
-#    class Meta:
-#        model = Choice
-##    choices = [('langue' , 'langue') , ('genre' , 'genre')]
-##    votre_choix = forms.ChoiceField(widget=forms.Select, choices=CHOICES)
-
-
-
-
 
