@@ -1,0 +1,5 @@
+Se placer dans le répertoir django
+lancer `make init`
+lancer `source myenv/bin/activate` (cela ne fonctionne pas dans un Makefile pour d'obscures raisons)
+Si besoin, lancer `pip install django`
+
